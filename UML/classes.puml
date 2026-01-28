@@ -1,0 +1,55 @@
+@startuml
+
+Class Vehicle {
+    - matricula : String
+    - mida : MidaVehicle
+    + getMatricula()
+    + getMida()
+}
+
+Class Motocicleta extends Vehicle{
+
+}
+
+Class Cotxe extends Vehicle{
+
+}
+
+Class Camio extends Vehicle{
+
+}
+
+
+
+
+Class PlacaAparcament{
+    - numero : Int
+    - estat
+    - vehicleAparcat : Vehicle
+    - coordenades : Coordenada[]
+}
+
+Class PlacaCompacta extends PlacaAparcament{
+
+}
+
+Class PlacaRegular extends PlacaAparcament{
+
+}
+
+Class PlacaGran extends PlacaAparcament{
+
+}
+
+
+Vehicle "1" -- "1" PlacaAparcament 
+
+PlacaAparcament "*" --> "*" Coordenada
+
+
+Class PlacesParking {
+    - places : PlacaAparcament[]
+}
+
+
+@enduml
