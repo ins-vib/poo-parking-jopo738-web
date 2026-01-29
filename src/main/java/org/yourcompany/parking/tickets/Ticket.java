@@ -1,5 +1,6 @@
 package org.yourcompany.parking.tickets;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 import org.yourcompany.parking.places.PlacaAparcament;
@@ -64,6 +65,28 @@ public class Ticket {
     public void setSortida(LocalDateTime sortida) {
         this.sortida = sortida;
     }
+
+
+    public long minuts(){    // posem long perqué és un enter molt gran
+        Duration duration = Duration.between(entrada,sortida);   // el duration el que fa és la resta entre les dos dates
+        return duration.toSeconds(); // /60;  // per calcular el minut hauriem de dividir entre 60
+        
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Ticket{");
+        sb.append("numero=").append(numero);
+        sb.append(", vehicle=").append(vehicle);
+        sb.append(", pla\u00e7a=").append(plaça);
+        sb.append(", entrada=").append(entrada);
+        sb.append(", sortida=").append(sortida);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    
 
 
     

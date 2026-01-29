@@ -10,6 +10,7 @@ import org.yourcompany.parking.places.Coordenada;
 import org.yourcompany.parking.places.PlacaAparcament;
 import org.yourcompany.parking.places.PlacaCompacta;
 import org.yourcompany.parking.places.PlacaRegular;
+import org.yourcompany.parking.tickets.Ticket;
 import org.yourcompany.parking.vehicles.Camio;
 import org.yourcompany.parking.vehicles.Cotxe;
 import org.yourcompany.parking.vehicles.Motocicleta;
@@ -20,7 +21,7 @@ import org.yourcompany.parking.vehicles.Motocicleta;
  */
 public class Parking {
 
-   public static void main(String[] args) {
+   public static void main(String[] args) throws InterruptedException {
         // Vehicle v = new Vehicle();
         Motocicleta m = new Motocicleta("1111-AAA");
         System.out.println(m.getTipus());
@@ -66,17 +67,25 @@ public class Parking {
     PlacesParking placesParking = new PlacesParking(places);
     
     placesParking.MostrarEstat();
-    placesParking.aparcar(ca);
-    placesParking.aparcar(m);
-    placesParking.aparcar(c);
+    Ticket ticket1=placesParking.aparcar(ca);   //return null
+    Ticket ticket2=placesParking.aparcar(m);
+    Ticket ticket3=placesParking.aparcar(c);
     placesParking.MostrarEstat();
+
+    System.out.println(ticket2);
+
+
+    Thread.sleep(3000);   // serveix per aturar el prgrama
 
 
     System.out.println("-------------------------------------------------------------------------------------------------------------");
 
     //Motocicleta m2 = new Motocicleta("kewlfjwelfjc");  // mai la trobara
     //Motocicleta m2 = new Motocicleta("1111-AAA");  // si que la trobarà perqué té la mateixa matricula gracies al equals de (PlacesParking)
-    placesParking.desaparcar(m);
+    // placesParking.desaparcar(m);
+    // placesParking.MostrarEstat();
+   double preu=placesParking.desaparcar(ticket2);
+   System.out.println("has de pagar: "+preu);
     placesParking.MostrarEstat();
 
 
