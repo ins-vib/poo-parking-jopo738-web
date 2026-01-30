@@ -28,7 +28,7 @@ public class PlacesParking {
 
     public Ticket aparcar(Vehicle vehicle){     // posem public Ticket perque el que volem retorna és el ticket
         for(PlacaAparcament plaça: places){
-            if(plaça.compatible(vehicle)&& !plaça.isOcupada()){
+            if(plaça.compatible(vehicle) && !plaça.isOcupada()){
                 plaça.aparcar(vehicle);
                 Ticket ticket = new Ticket(vehicle, plaça);
                 tickets.add(ticket);
@@ -56,6 +56,15 @@ public class PlacesParking {
         return preu;
  
     }
+
+     public Ticket getTicket(int numero){
+
+        for(Ticket t: tickets){
+            if(t.getNumero()==numero)return t;
+        }
+        return null;
+        
+     }
 
     // public boolean desaparcar(Vehicle vehicle){
         
