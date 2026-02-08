@@ -8,15 +8,30 @@ Class Vehicle {
 }
 
 Class Motocicleta extends Vehicle{
+    + Motocicleta (matricula : String)
+    
 
 }
 
 Class Cotxe extends Vehicle{
+    + Cotxe (matricula : String)
 
 }
 
 Class Camio extends Vehicle{
+    + Camio (matricula : String)
 
+}
+
+ENUM TipusPlaces {
+    COMPACTES,
+    REGULARS,
+    GRANS
+}
+
+Class Coordenada{
+    - x : double
+    - y : double
 }
 
 
@@ -30,14 +45,17 @@ Class PlacaAparcament{
 }
 
 Class PlacaCompacta extends PlacaAparcament{
+    - PlacaCompacta (numero : Int, coordenades : Coordenada[])
 
 }
 
 Class PlacaRegular extends PlacaAparcament{
+    - PlacaRegular (numero : Int, coordenades : Coordenada[])
 
 }
 
 Class PlacaGran extends PlacaAparcament{
+    - PlacaGran (numero : Int, coordenades : Coordenada[])
 
 }
 
@@ -48,7 +66,11 @@ PlacaAparcament "*" --> "*" Coordenada
 
 
 Class PlacesParking {
-    - places : PlacaAparcament[]
+    - placesParking : PlacaAparcament[]
+    + aparcar() : Vehicle
+    + desaparcar() : Ticket
+    + MostrarEstat()
+    + getTickets() : int
 }
 
 
